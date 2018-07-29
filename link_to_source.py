@@ -4,7 +4,7 @@ import subprocess
 import re
 from .remote_factory import RemoteFactory
 
-class SublimeSourceLinkCommand(sublime_plugin.TextCommand):
+class LinkToSourceCommand(sublime_plugin.TextCommand):
     root = ''
     repo_url = ''
     cwd = ''

@@ -1,7 +1,7 @@
 [
 {
-    "id" : "sublime-source-link",
-    "caption" : "Source Control Link",
-    "command" : "sublime_source_link"
+    "id" : "LinkToSource",
+    "caption" : "Copy source control link",
+    "command" : "link_to_source"
 }
 ]
