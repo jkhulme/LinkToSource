@@ -1,8 +1,9 @@
 from .github import Github
+from .gitlab import Gitlab
 
 class RemoteFactory:
 
-    repos = [Github]
+    repos = [Github, Gitlab]
 
     def __new__(self, remote):
         for repo in self.repos:
