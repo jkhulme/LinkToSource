@@ -1,5 +1,5 @@
-from .github import Github
-from .gitlab import Gitlab
+from .repositories.github import Github
+from .repositories.gitlab import Gitlab
 
 class RemoteFactory:
 
