@@ -1,0 +1,7 @@
+[
+{
+    "id" : "sublime-source-link",
+    "caption" : "Source Control Link",
+    "command" : "sublime_source_link"
+}
+]
