@@ -1,7 +1,8 @@
 import sublime
 import sublime_plugin
+
 import subprocess
-import re
+
 from .remote import Remote
 
 class LinkToSourceCommand(sublime_plugin.TextCommand):
