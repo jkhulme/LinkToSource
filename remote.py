@@ -5,8 +5,8 @@ class Remote:
     def __init__(self, remote):
         self.remote = remote
 
-    def repo_url(self):
-        return self._add_path(self._remove_dot_git(self._parse_https(self.remote)))
+    def repo_url(self, branch):
+        return self._add_path(self._remove_dot_git(self._parse_https(self.remote)), branch)
 
     def _parse_https(self, remote):
         match = re.search('^git@(.*?):', remote)
@@ -20,5 +20,5 @@ class Remote:
     def _remove_dot_git(self, url):
         return '.git'.join(url.rsplit('.git')[:-1])
 
-    def _add_path(self, url):
-        return '{}/tree/master'.format(url)
+    def _add_path(self, url, branch):
+        return '{}/tree/{}'.format(url, branch)

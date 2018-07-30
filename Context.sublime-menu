@@ -1,7 +1,14 @@
 [
 {
     "id" : "LinkToSource",
-    "caption" : "Copy source control link",
-    "command" : "link_to_source"
+    "caption" : "Copy source link (Master)",
+    "command" : "link_to_source",
+    "args": {"branch": "master"}
+},
+{
+    "id" : "LinkToSource",
+    "caption" : "Copy source link (Current branch)",
+    "command" : "link_to_source",
+    "args": {"branch": "current"}
 }
 ]

@@ -9,9 +9,10 @@ class LinkToSourceCommand(sublime_plugin.TextCommand):
     repo_url = ''
     cwd = ''
 
-    def run(self, edit):
+    def run(self, edit, branch):
         self.cwd = self._cwd()
         self.root = self._project_root()
+        self.branch = self._branch(branch)
         self.repo_url = self._repo_url()
         sublime.set_clipboard(self._link())
 
@@ -26,7 +27,7 @@ class LinkToSourceCommand(sublime_plugin.TextCommand):
         return '/'.join(self.view.file_name().split('/')[:-1])
 
     def _repo_url(self):
-        return Remote(self._remote_origin()).repo_url()
+        return Remote(self._remote_origin()).repo_url(self.branch)
 
     def _project_root(self):
         git_root_directory = ['rev-parse', '--show-toplevel']
@@ -36,6 +37,15 @@ class LinkToSourceCommand(sublime_plugin.TextCommand):
         git_remote_origin = ['config', '--get', 'remote.origin.url']
         return self._git_command(git_remote_origin)
 
+    def _current_branch(self):
+        git_branch = ['rev-parse', '--abbrev-ref', 'HEAD']
+        return self._git_command(git_branch)
+
     def _git_command(self, command):
         git_command = ['git', '-C', self.cwd] + command
         return subprocess.check_output(git_command).strip().decode('utf-8')
+
+    def _branch(self, branch):
+        if branch == 'master':
+            return branch
+        return self._current_branch()
