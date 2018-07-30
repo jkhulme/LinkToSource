@@ -2,7 +2,7 @@ import sublime
 import sublime_plugin
 import subprocess
 import re
-from .remote_factory import RemoteFactory
+from .remote import Remote
 
 class LinkToSourceCommand(sublime_plugin.TextCommand):
     root = ''
@@ -26,7 +26,7 @@ class LinkToSourceCommand(sublime_plugin.TextCommand):
         return '/'.join(self.view.file_name().split('/')[:-1])
 
     def _repo_url(self):
-        return RemoteFactory(self._remote_origin()).repo_url()
+        return Remote(self._remote_origin()).repo_url()
 
     def _project_root(self):
         git_root_directory = ['rev-parse', '--show-toplevel']
