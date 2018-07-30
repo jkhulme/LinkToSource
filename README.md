@@ -1,8 +1,6 @@
-# sublime-source-link
+# LinkToSource
 Sublime Text Plugin for getting a link to a file in your source control
 
-## Supported repositories
-- www.github.com
-- www.gitlab.com
+If it does not work with your repository, please raise a ticket, or submit a pull request.
 
-If your repository is not listed, please raise a ticket, or submit a pull request
+Please include the output of `git config --get remote.origin.url`
