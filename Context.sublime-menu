@@ -1,14 +1,26 @@
 [
-{
-    "id" : "LinkToSource",
-    "caption" : "Copy source link (Master)",
-    "command" : "link_to_source",
-    "args": {"branch": "master"}
-},
-{
-    "id" : "LinkToSource",
-    "caption" : "Copy source link (Current branch)",
-    "command" : "link_to_source",
-    "args": {"branch": "current"}
-}
+    {
+        "id": "seperator",
+        "caption": "-"
+    },
+    {
+        "id": "LinkToSource",
+        "caption": "Copy link for source repository",
+        "children": [
+            {
+                "caption" : "Master",
+                "command" : "link_to_source",
+                "args": {"branch": "master"}
+            },
+            {
+                "caption" : "Current branch",
+                "command" : "link_to_source",
+                "args": {"branch": "current"}
+            }
+        ]
+    },
+    {
+        "id": "seperator",
+        "caption": "-"
+    }
 ]
