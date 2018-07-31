@@ -18,7 +18,9 @@ class Remote:
         return remote
 
     def _remove_dot_git(self, url):
-        return '.git'.join(url.rsplit('.git')[:-1])
+        if url.endswith('.git'):
+            return url[:-len('.git')]
+        return url
 
     def _add_path(self, url, branch):
         return '{}/tree/{}'.format(url, branch)
